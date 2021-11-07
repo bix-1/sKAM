@@ -13,5 +13,5 @@ Python script for fetching the data from [KAM VUTBR dorms DB](https://www.kn.vut
 ## Usage
 - **Run** using `./sKAM.py`
 - See `./sKAM.py --help` for detailed usage
-- Data is stored in `data` folder
 - Updates are printed on standard output
+  - Data is stored in `data` folder
