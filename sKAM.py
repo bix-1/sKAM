@@ -12,6 +12,7 @@ import warnings
 import argparse
 from random import randint
 from selenium.common.exceptions import NoSuchElementException
+from webdriver_manager.chrome import ChromeDriverManager
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
@@ -22,12 +23,12 @@ class sKAM:
     a05 += ["a05-" + str(x) for x in list(range(109,115)) + list(range(127, 135))]
     targets = a04 + a05
 
-    def __init__(self, username, password, rnd, drv="./chromedriver", url="https://www.kn.vutbr.cz/is2/", folder="data"):
+    def __init__(self, username, password, rnd, url="https://www.kn.vutbr.cz/is2/", folder="data"):
         self.username = username
         self.password = password
         self.rnd = rnd
         self.folder = folder
-        self.driver = webdriver.Chrome(drv)
+        self.driver = webdriver.Chrome(ChromeDriverManager().install())
         self.driver.get(url)
 
 
@@ -52,7 +53,13 @@ class sKAM:
             rows = table.find_elements(By.TAG_NAME, "tr")
             status = len(rows) // 5
         except NoSuchElementException:
-            status = 0
+            try:
+                table = self.driver.find_element(By.XPATH, "/html/body/div/table[1]/tbody/tr[1]/td/table[3]/tbody/tr[2]/td/form/table[2]/tbody")
+                rows = table.find_elements(By.TAG_NAME, "tr")
+                status = len(rows) // 5
+            except NoSuchElementException:
+                status = 0
+
         return room + ": " + str(status) + "\n"
 
     def fetch_targets(self):
