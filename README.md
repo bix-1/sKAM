@@ -1,5 +1,5 @@
 # sKAM project 2021
-Script for checking room availability at [KAM VUTBR dorms](http://www.kam.vutbr.cz/) - the KAM sc~~K~~am
+Script for checking room availability at [KAM VUTBR dorms](http://www.kam.vutbr.cz/) - the KAM ~~scam~~ scan
 
 ## Description
 Python script for fetching the data from [KAM VUTBR dorms DB](https://www.kn.vutbr.cz/) and checking _anonymized_ updates on room availability. Created due to incompetence of the dorm's administration and their unwillingness to allow students to check the room availability apart from __checking at their office *in person*__.
