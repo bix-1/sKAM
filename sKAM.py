@@ -13,6 +13,7 @@ import argparse
 from random import randint
 from selenium.common.exceptions import NoSuchElementException
 from webdriver_manager.chrome import ChromeDriverManager
+import sys
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
@@ -44,7 +45,11 @@ class sKAM:
 
 
     def find_room(self, room):
-        self.driver.find_element(By.NAME, "str").clear()
+        try:
+            self.driver.find_element(By.NAME, "str").clear()
+        except:
+            print("ERROR: Failed to fetch data\nHint: Connect to KN or Supply your credentials (./sKAM --help)")
+            sys.exit(1)
         self.driver.find_element(By.NAME, "str").send_keys(room)
         self.driver.find_element(By.CSS_SELECTOR, "tr:nth-child(4) input").click()
 
