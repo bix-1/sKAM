@@ -9,9 +9,11 @@ Python script for fetching the data from [KAM VUTBR dorms DB](https://www.kn.vut
 
 ## Installation
 - Clone repo
+- Install requirements using `pip install -r requirements.txt`
 
 ## Usage
 - **Run** using `./sKAM.py`
+- If using outside of KolejNet network, provide your user credentials (username, password) to access the information system
 - See `./sKAM.py --help` for detailed usage
 - Updates are printed on standard output
   - Data is stored in `data` folder
